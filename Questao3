@@ -1,0 +1,74 @@
+//código
+
+{
+    "faturamento_diario": [0, 1200.5, 1500, 0, 2000, 1800.75, 0, 2300, 2500, 0, 0, 1000.5, 900, 1200, 1700.25, 0, 1400, 2100, 0, 2200, 1900.5, 0, 0, 1300, 1700, 0, 1600, 2000.5, 1800, 2100.75]
+}
+
+
+Código em Python
+import json
+
+def calcular_faturamento():
+    # Carrega os dados do faturamento diário a partir de um arquivo JSON
+    try:
+        with open("faturamento.json", "r") as file:
+            dados = json.load(file)
+            faturamento_diario = dados["faturamento_diario"]
+
+        # Filtra apenas os dias com faturamento > 0
+        faturamento_valido = [valor for valor in faturamento_diario if valor > 0]
+
+        # Calcula o menor e maior faturamento
+        menor_valor = min(faturamento_valido)
+        maior_valor = max(faturamento_valido)
+
+        # Calcula a média mensal
+        media_mensal = sum(faturamento_valido) / len(faturamento_valido)
+
+        # Calcula o número de dias com faturamento acima da média
+        dias_acima_media = len([valor for valor in faturamento_valido if valor > media_mensal])
+
+        # Exibe os resultados
+        print(f"Menor valor de faturamento: R$ {menor_valor:.2f}")
+        print(f"Maior valor de faturamento: R$ {maior_valor:.2f}")
+        print(f"Número de dias com faturamento acima da média: {dias_acima_media}")
+
+    except FileNotFoundError:
+        print("Arquivo 'faturamento.json' não encontrado. Verifique o caminho do arquivo.")
+    except KeyError:
+        print("Chave 'faturamento_diario' não encontrada no JSON.")
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+
+# Chamada da função principal
+calcular_faturamento()
+
+
+//Explicação do Código
+
+//Leitura do JSON: O programa lê o arquivo faturamento.json e extrai os valores de faturamento diário.
+
+//Filtragem: Dias com faturamento igual a 0 (feriados e finais de semana) são ignorados.
+
+//Cálculo: 
+
+//Menor e maior valor: Calculados usando min() e max().
+
+//Média mensal: Calculada como a soma dos valores válidos dividida pelo número de dias com faturamento.
+
+//Dias acima da média: Contados usando uma lista de compreensão.
+
+//Exibição dos Resultados: Os valores calculados são exibidos no console.
+
+
+
+//Exemplo de saída
+Se o arquivo faturamento.json contiver os dados fornecidos:
+
+
+Menor valor de faturamento: R$ 900.00
+Maior valor de faturamento: R$ 2500.00
+Número de dias com faturamento acima da média: 10 
+
+
+
