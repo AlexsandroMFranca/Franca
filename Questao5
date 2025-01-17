@@ -1,0 +1,37 @@
+//Questao5
+//Código em Python
+
+def inverter_string(string):
+    # Inicializa uma string vazia para armazenar o resultado
+    string_invertida = ""
+    # Percorre a string de trás para frente usando um loop
+    for i in range(len(string) - 1, -1, -1):
+        string_invertida += string[i]
+    return string_invertida
+
+# Entrada do usuário
+entrada = input("Digite a string que deseja inverter: ")
+
+# Chama a função e exibe o resultado
+resultado = inverter_string(entrada)
+print(f"String invertida: {resultado}")
+
+//Explicação do Código
+
+Loop manual: O programa percorre a string de trás para frente utilizando um índice decrescente (range(len(string) - 1, -1, -1)).
+
+Construção da string invertida: Para cada caractere, adiciona-o à nova string string_invertida.
+
+Entrada personalizada: O usuário pode digitar qualquer string na entrada para inverter.
+
+//Exemplo de Entrada e Saída
+
+Entrada:
+
+Digite a string que deseja inverter: Franca 
+
+
+Saída:
+
+String invertida: acnarF
+
