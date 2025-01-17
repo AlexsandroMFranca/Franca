@@ -1,0 +1,43 @@
+//Questao 4
+
+def calcular_percentual_faturamento():
+    # Faturamento mensal detalhado por estado
+    faturamento_estados = {
+        "SP": 67836.43,
+        "RJ": 36678.66,
+        "MG": 29229.88,
+        "ES": 27165.48,
+        "Outros": 19849.53
+    }
+
+    # Calcula o faturamento total
+    faturamento_total = sum(faturamento_estados.values())
+
+    # Calcula o percentual de cada estado e exibe os resultados
+    print("Percentual de representação por estado:\n")
+    for estado, valor in faturamento_estados.items():
+        percentual = (valor / faturamento_total) * 100
+        print(f"{estado}: {percentual:.2f}%")
+
+# Chamada da função principal
+calcular_percentual_faturamento()
+
+
+Explicação do Código
+
+Dados de entrada: Um dicionário faturamento_estados contém o faturamento por estado.
+
+Cálculo do total: Soma dos valores do dicionário para obter o faturamento total.
+
+Percentual por estado: Para cada estado, calcula-se o percentual como: Percentual=faturamento do estado/faturamento total x 10
+
+//Exemplo de saída
+Percentual de representação por estado:
+
+SP: 37.53%
+RJ: 20.29%
+MG: 16.17%
+ES: 15.04%
+Outros: 10.97%
+
+
